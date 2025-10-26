@@ -9,8 +9,16 @@ class MyApp extends StatelessWidget {
     final wordPair = WordPair.random();
 
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.purple),
-      home: RandomWords()
+      theme: ThemeData(
+        primaryColor: Colors.purple,
+        // Ensure AppBar uses the purple color even when Material3 or
+        // default surface colors might otherwise make it white.
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.purple,
+          foregroundColor: Colors.white,
+        ),
+      ),
+      home: RandomWords(),
     );
   }
 }
